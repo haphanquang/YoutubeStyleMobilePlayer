@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A58821F1CE727C200D17823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A58821E1CE727C200D17823 /* AppDelegate.swift */; };
+		7A5882211CE727C200D17823 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5882201CE727C200D17823 /* ViewController.swift */; };
+		7A5882241CE727C200D17823 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5882221CE727C200D17823 /* Main.storyboard */; };
+		7A5882261CE727C200D17823 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5882251CE727C200D17823 /* Assets.xcassets */; };
+		7A5882291CE727C200D17823 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5882271CE727C200D17823 /* LaunchScreen.storyboard */; };
+		7A5882341CE727C200D17823 /* SYVideoPlayerDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5882331CE727C200D17823 /* SYVideoPlayerDemoTests.swift */; };
+		7A58823F1CE727C200D17823 /* SYVideoPlayerDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A58823E1CE727C200D17823 /* SYVideoPlayerDemoUITests.swift */; };
+		7A58824E1CE7292700D17823 /* SYVideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A58824D1CE7292700D17823 /* SYVideoPlayerController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A5882301CE727C200D17823 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A5882131CE727C200D17823 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A58821A1CE727C200D17823;
+			remoteInfo = SYVideoPlayerDemo;
+		};
+		7A58823B1CE727C200D17823 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A5882131CE727C200D17823 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A58821A1CE727C200D17823;
+			remoteInfo = SYVideoPlayerDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7A58821B1CE727C200D17823 /* SYVideoPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SYVideoPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A58821E1CE727C200D17823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7A5882201CE727C200D17823 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7A5882231CE727C200D17823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7A5882251CE727C200D17823 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A5882281CE727C200D17823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7A58822A1CE727C200D17823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A58822F1CE727C200D17823 /* SYVideoPlayerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SYVideoPlayerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5882331CE727C200D17823 /* SYVideoPlayerDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYVideoPlayerDemoTests.swift; sourceTree = "<group>"; };
+		7A5882351CE727C200D17823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A58823A1CE727C200D17823 /* SYVideoPlayerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SYVideoPlayerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A58823E1CE727C200D17823 /* SYVideoPlayerDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYVideoPlayerDemoUITests.swift; sourceTree = "<group>"; };
+		7A5882401CE727C200D17823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A58824D1CE7292700D17823 /* SYVideoPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYVideoPlayerController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A5882181CE727C200D17823 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A58822C1CE727C200D17823 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A5882371CE727C200D17823 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A5882121CE727C200D17823 = {
+			isa = PBXGroup;
+			children = (
+				7A58821D1CE727C200D17823 /* SYVideoPlayerDemo */,
+				7A5882321CE727C200D17823 /* SYVideoPlayerDemoTests */,
+				7A58823D1CE727C200D17823 /* SYVideoPlayerDemoUITests */,
+				7A58821C1CE727C200D17823 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7A58821C1CE727C200D17823 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A58821B1CE727C200D17823 /* SYVideoPlayerDemo.app */,
+				7A58822F1CE727C200D17823 /* SYVideoPlayerDemoTests.xctest */,
+				7A58823A1CE727C200D17823 /* SYVideoPlayerDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A58821D1CE727C200D17823 /* SYVideoPlayerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				7A58824C1CE727D700D17823 /* SYVideoPlayerController */,
+				7A58821E1CE727C200D17823 /* AppDelegate.swift */,
+				7A5882201CE727C200D17823 /* ViewController.swift */,
+				7A5882221CE727C200D17823 /* Main.storyboard */,
+				7A5882251CE727C200D17823 /* Assets.xcassets */,
+				7A5882271CE727C200D17823 /* LaunchScreen.storyboard */,
+				7A58822A1CE727C200D17823 /* Info.plist */,
+			);
+			path = SYVideoPlayerDemo;
+			sourceTree = "<group>";
+		};
+		7A5882321CE727C200D17823 /* SYVideoPlayerDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A5882331CE727C200D17823 /* SYVideoPlayerDemoTests.swift */,
+				7A5882351CE727C200D17823 /* Info.plist */,
+			);
+			path = SYVideoPlayerDemoTests;
+			sourceTree = "<group>";
+		};
+		7A58823D1CE727C200D17823 /* SYVideoPlayerDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7A58823E1CE727C200D17823 /* SYVideoPlayerDemoUITests.swift */,
+				7A5882401CE727C200D17823 /* Info.plist */,
+			);
+			path = SYVideoPlayerDemoUITests;
+			sourceTree = "<group>";
+		};
+		7A58824C1CE727D700D17823 /* SYVideoPlayerController */ = {
+			isa = PBXGroup;
+			children = (
+				7A58824D1CE7292700D17823 /* SYVideoPlayerController.swift */,
+			);
+			path = SYVideoPlayerController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A58821A1CE727C200D17823 /* SYVideoPlayerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A5882431CE727C200D17823 /* Build configuration list for PBXNativeTarget "SYVideoPlayerDemo" */;
+			buildPhases = (
+				7A5882171CE727C200D17823 /* Sources */,
+				7A5882181CE727C200D17823 /* Frameworks */,
+				7A5882191CE727C200D17823 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SYVideoPlayerDemo;
+			productName = SYVideoPlayerDemo;
+			productReference = 7A58821B1CE727C200D17823 /* SYVideoPlayerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7A58822E1CE727C200D17823 /* SYVideoPlayerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A5882461CE727C200D17823 /* Build configuration list for PBXNativeTarget "SYVideoPlayerDemoTests" */;
+			buildPhases = (
+				7A58822B1CE727C200D17823 /* Sources */,
+				7A58822C1CE727C200D17823 /* Frameworks */,
+				7A58822D1CE727C200D17823 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A5882311CE727C200D17823 /* PBXTargetDependency */,
+			);
+			name = SYVideoPlayerDemoTests;
+			productName = SYVideoPlayerDemoTests;
+			productReference = 7A58822F1CE727C200D17823 /* SYVideoPlayerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7A5882391CE727C200D17823 /* SYVideoPlayerDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A5882491CE727C200D17823 /* Build configuration list for PBXNativeTarget "SYVideoPlayerDemoUITests" */;
+			buildPhases = (
+				7A5882361CE727C200D17823 /* Sources */,
+				7A5882371CE727C200D17823 /* Frameworks */,
+				7A5882381CE727C200D17823 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A58823C1CE727C200D17823 /* PBXTargetDependency */,
+			);
+			name = SYVideoPlayerDemoUITests;
+			productName = SYVideoPlayerDemoUITests;
+			productReference = 7A58823A1CE727C200D17823 /* SYVideoPlayerDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A5882131CE727C200D17823 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = soyo;
+				TargetAttributes = {
+					7A58821A1CE727C200D17823 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					7A58822E1CE727C200D17823 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 7A58821A1CE727C200D17823;
+					};
+					7A5882391CE727C200D17823 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 7A58821A1CE727C200D17823;
+					};
+				};
+			};
+			buildConfigurationList = 7A5882161CE727C200D17823 /* Build configuration list for PBXProject "SYVideoPlayerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A5882121CE727C200D17823;
+			productRefGroup = 7A58821C1CE727C200D17823 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A58821A1CE727C200D17823 /* SYVideoPlayerDemo */,
+				7A58822E1CE727C200D17823 /* SYVideoPlayerDemoTests */,
+				7A5882391CE727C200D17823 /* SYVideoPlayerDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A5882191CE727C200D17823 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A5882291CE727C200D17823 /* LaunchScreen.storyboard in Resources */,
+				7A5882261CE727C200D17823 /* Assets.xcassets in Resources */,
+				7A5882241CE727C200D17823 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A58822D1CE727C200D17823 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A5882381CE727C200D17823 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A5882171CE727C200D17823 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A5882211CE727C200D17823 /* ViewController.swift in Sources */,
+				7A58824E1CE7292700D17823 /* SYVideoPlayerController.swift in Sources */,
+				7A58821F1CE727C200D17823 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A58822B1CE727C200D17823 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A5882341CE727C200D17823 /* SYVideoPlayerDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A5882361CE727C200D17823 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A58823F1CE727C200D17823 /* SYVideoPlayerDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7A5882311CE727C200D17823 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A58821A1CE727C200D17823 /* SYVideoPlayerDemo */;
+			targetProxy = 7A5882301CE727C200D17823 /* PBXContainerItemProxy */;
+		};
+		7A58823C1CE727C200D17823 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A58821A1CE727C200D17823 /* SYVideoPlayerDemo */;
+			targetProxy = 7A58823B1CE727C200D17823 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7A5882221CE727C200D17823 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A5882231CE727C200D17823 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7A5882271CE727C200D17823 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A5882281CE727C200D17823 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7A5882411CE727C200D17823 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A5882421CE727C200D17823 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A5882441CE727C200D17823 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SYVideoPlayerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = soyo.mobile.SYVideoPlayerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7A5882451CE727C200D17823 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SYVideoPlayerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = soyo.mobile.SYVideoPlayerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7A5882471CE727C200D17823 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SYVideoPlayerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = soyo.mobile.SYVideoPlayerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SYVideoPlayerDemo.app/SYVideoPlayerDemo";
+			};
+			name = Debug;
+		};
+		7A5882481CE727C200D17823 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SYVideoPlayerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = soyo.mobile.SYVideoPlayerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SYVideoPlayerDemo.app/SYVideoPlayerDemo";
+			};
+			name = Release;
+		};
+		7A58824A1CE727C200D17823 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SYVideoPlayerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = soyo.mobile.SYVideoPlayerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SYVideoPlayerDemo;
+			};
+			name = Debug;
+		};
+		7A58824B1CE727C200D17823 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SYVideoPlayerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = soyo.mobile.SYVideoPlayerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SYVideoPlayerDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A5882161CE727C200D17823 /* Build configuration list for PBXProject "SYVideoPlayerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A5882411CE727C200D17823 /* Debug */,
+				7A5882421CE727C200D17823 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A5882431CE727C200D17823 /* Build configuration list for PBXNativeTarget "SYVideoPlayerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A5882441CE727C200D17823 /* Debug */,
+				7A5882451CE727C200D17823 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7A5882461CE727C200D17823 /* Build configuration list for PBXNativeTarget "SYVideoPlayerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A5882471CE727C200D17823 /* Debug */,
+				7A5882481CE727C200D17823 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7A5882491CE727C200D17823 /* Build configuration list for PBXNativeTarget "SYVideoPlayerDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A58824A1CE727C200D17823 /* Debug */,
+				7A58824B1CE727C200D17823 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7A5882131CE727C200D17823 /* Project object */;
+}
