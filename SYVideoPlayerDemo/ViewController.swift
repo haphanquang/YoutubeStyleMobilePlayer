@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         let videoPlayer = SYVideoPlayerController()
         
         videoPlayer.presentIn(self)
+        videoPlayer.playVideo(NSURL(string: "http://video.bongda24h.vn/medias/MP4/2016/5/31/v.mp4")!)
     }
 
 }

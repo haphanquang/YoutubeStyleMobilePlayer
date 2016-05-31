@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MobilePlayer
 
 enum PresentingState {
     case StateNotDetermine
@@ -33,6 +34,7 @@ public class SYVideoPlayerController: UIViewController {
 
     let videoContainer: UIView = UIView(frame: CGRectZero)
     let otherContainer: UIView = UIView(frame: CGRectZero)
+    var moviePlayer: MobilePlayerViewController?
     
     var isAnimating = false
     var isSwiping = false
@@ -171,6 +173,9 @@ public class SYVideoPlayerController: UIViewController {
         videoContainer.alpha = 1.0
         
         videoContainer.frame = videoFrame
+        
+        moviePlayer?.view.frame = videoContainer.bounds
+        
         otherContainer.frame = otherFrame
 
     }
@@ -428,8 +433,16 @@ extension SYVideoPlayerController {
         self.view.removeFromSuperview()
     }
     
-    public func playVideo(videoUrl: String) {
+    public func playVideo(videoUrl: NSURL) {
+        if let player = moviePlayer {
+            player.view.removeFromSuperview()
+            moviePlayer = nil
+        }
         
+        moviePlayer = MobilePlayerViewController(contentURL: videoUrl)
+        moviePlayer?.view.frame = videoContainer.bounds
+        
+        videoContainer.addSubview(moviePlayer!.view)
     }
     
     public func showFullScreen () {
