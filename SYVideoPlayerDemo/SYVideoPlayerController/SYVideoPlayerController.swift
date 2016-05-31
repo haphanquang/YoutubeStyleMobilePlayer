@@ -80,6 +80,12 @@ public class SYVideoPlayerController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
     public override func loadView() {
         super.loadView()
         
@@ -134,7 +140,7 @@ public class SYVideoPlayerController: UIViewController {
         
             view.backgroundColor = UIColor(white: backgroundWhite, alpha: backgroundAlpha)
             otherContainer.alpha = 1.0
-
+            moviePlayer?.controlsHidden = false
             break
         case .StateFullScreen :
             videoFrame.origin.x = 0
@@ -149,6 +155,7 @@ public class SYVideoPlayerController: UIViewController {
             
             view.backgroundColor = UIColor(white: backgroundWhite, alpha: 0.0)
             otherContainer.alpha = 0.0
+            moviePlayer?.controlsHidden = false
             break
         case .StateMinimal:
             videoFrame = minimizeFrame
@@ -159,6 +166,8 @@ public class SYVideoPlayerController: UIViewController {
             
             view.backgroundColor = UIColor(white: backgroundWhite, alpha: 0.0)
             otherContainer.alpha = 0.0
+            
+            moviePlayer?.controlsHidden = true
             break
         default:
             break
@@ -178,6 +187,10 @@ public class SYVideoPlayerController: UIViewController {
         
         otherContainer.frame = otherFrame
 
+    }
+    
+    public override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 }
 
@@ -443,11 +456,14 @@ extension SYVideoPlayerController {
         moviePlayer?.view.frame = videoContainer.bounds
         
         videoContainer.addSubview(moviePlayer!.view)
+        moviePlayer?.play()
     }
     
     public func showFullScreen () {
         
     }
+    
+    
 }
 
 class PassThroughView: UIView {
