@@ -1,0 +1,28 @@
+{
+    "bottomBar":{
+        "backgroundColor": ["#00050000", "#000500a0"],
+        "elements":[{
+             "type": "toggleButton",
+             "identifier": "play"
+            },{
+             "type": "slider",
+             "identifier": "playback",
+             "trackHeight": 2,
+             "trackCornerRadius": 1,
+             "minimumTrackTintColor": "#fa1919",
+             "availableTrackTintColor": "#fafafa",
+             "maximumTrackTintColor": "#d1d2d280",
+             "thumbTintColor": "#f9f9f9",
+             "thumbBorderWidth": 1,
+             "thumbBorderColor": "#fff",
+             "marginRight": 10
+             },
+            {"type":"label", "identifier":"currentTime", "marginRight":15}
+            ]
+        },
+    "topBar": {
+        "backgroundColor": ["#000500a0", "#00050000"],
+        "height":30,
+        "elements": [{"type": "button","identifier": "action"}]
+    }
+}

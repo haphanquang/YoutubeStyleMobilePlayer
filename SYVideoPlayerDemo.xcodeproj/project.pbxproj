@@ -17,6 +17,7 @@
 		7A5882341CE727C200D17823 /* SYVideoPlayerDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5882331CE727C200D17823 /* SYVideoPlayerDemoTests.swift */; };
 		7A58823F1CE727C200D17823 /* SYVideoPlayerDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A58823E1CE727C200D17823 /* SYVideoPlayerDemoUITests.swift */; };
 		7A58824E1CE7292700D17823 /* SYVideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A58824D1CE7292700D17823 /* SYVideoPlayerController.swift */; };
+		7A8F1E8A1CFF3C65009ECE11 /* VideoStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A8F1E891CFF3C65009ECE11 /* VideoStyle.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		7A58823E1CE727C200D17823 /* SYVideoPlayerDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYVideoPlayerDemoUITests.swift; sourceTree = "<group>"; };
 		7A5882401CE727C200D17823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A58824D1CE7292700D17823 /* SYVideoPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYVideoPlayerController.swift; sourceTree = "<group>"; };
+		7A8F1E891CFF3C65009ECE11 /* VideoStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VideoStyle.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 		7A58824C1CE727D700D17823 /* SYVideoPlayerController */ = {
 			isa = PBXGroup;
 			children = (
+				7A8F1E891CFF3C65009ECE11 /* VideoStyle.json */,
 				7A58824D1CE7292700D17823 /* SYVideoPlayerController.swift */,
 			);
 			path = SYVideoPlayerController;
@@ -362,6 +365,7 @@
 				7A5882291CE727C200D17823 /* LaunchScreen.storyboard in Resources */,
 				7A5882261CE727C200D17823 /* Assets.xcassets in Resources */,
 				7A5882241CE727C200D17823 /* Main.storyboard in Resources */,
+				7A8F1E8A1CFF3C65009ECE11 /* VideoStyle.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

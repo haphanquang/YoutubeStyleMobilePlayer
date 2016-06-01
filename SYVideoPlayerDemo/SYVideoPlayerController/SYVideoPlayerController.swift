@@ -386,12 +386,17 @@ extension SYVideoPlayerController {
         }) { (context) in
             self.presentingState = self.nextState
             self.nextState = .StateNotDetermine
+            self.isAnimating = false
+            self.isSwiping = false
         }
     }
 }
 
 extension SYVideoPlayerController: UIGestureRecognizerDelegate {
     public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if self.presentingState == .StateMinimal {
+            return false
+        }
         return true
     }
     public func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -452,7 +457,12 @@ extension SYVideoPlayerController {
             moviePlayer = nil
         }
         
-        moviePlayer = MobilePlayerViewController(contentURL: videoUrl)
+        let bundle = NSBundle.mainBundle()
+        let config = MobilePlayerConfig(fileURL: bundle.URLForResource(
+            "VideoStyle",
+            withExtension: "json")!)
+        
+        moviePlayer = MobilePlayerViewController(contentURL: videoUrl, config: config)
         moviePlayer?.view.frame = videoContainer.bounds
         
         videoContainer.addSubview(moviePlayer!.view)
