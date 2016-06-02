@@ -556,7 +556,7 @@ extension SYVideoPlayerController {
     
     public func showFullScreen () {
         if presentingState != .StateFullScreen {
-            let value = UIInterfaceOrientation.LandscapeLeft.rawValue
+            let value = UIInterfaceOrientation.LandscapeRight.rawValue
             UIDevice.currentDevice().setValue(value, forKey: "orientation")
         }else{
             let value = UIInterfaceOrientation.Portrait.rawValue

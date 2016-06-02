@@ -18,7 +18,7 @@
              "marginRight": 10
              },{"type":"label", "identifier":"currentTime", "marginRight":3, "size":11},
                     {"type":"label", "text":"/", "marginRight":3, "size": 11},
-            {"type":"label", "identifier":"duration", "marginRight":3, "size":11},{"type": "button","identifier": "size_control", "width":25, "height":25,"marginRight":15}
+            {"type":"label", "identifier":"duration", "marginRight":3, "size":11},{"type": "button","identifier": "size_control", "width":25, "height":25,"marginRight":10}
             ]
         },
     "topBar": {
