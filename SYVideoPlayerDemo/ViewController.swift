@@ -7,12 +7,32 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
+import Foundation
 
 class ViewController: UIViewController {
+    
+    static let YoutubeAPIKey = "AIzaSyCFbGK0NBsOl39gbeRc9bv8EgJwe-U7R1A"
+    static let Keyword = "nhu%20quynh"
+    
+    let URL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(Keyword)&type=video&maxResults=20&key=AIzaSyCFbGK0NBsOl39gbeRc9bv8EgJwe-U7R1A"
+    
+    var videoArray: [NSDictionary] = [NSDictionary]()
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+//        collectionView.registerClass(YoutubeVideoCell.self, forCellWithReuseIdentifier: "YoutubeVideoCell")
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.backgroundColor = UIColor.whiteColor()
+        
+        loadSampleYoutubeVideo()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,11 +41,100 @@ class ViewController: UIViewController {
     }
 
     @IBAction func presentPlayerController(sender: UIButton) {
-        let videoPlayer = SYVideoPlayerController()
         
-        videoPlayer.presentIn(self)
-        videoPlayer.playVideo(NSURL(string: "http://youtube.com/watch?v=ycGfvA1vkR8")!)
     }
 
+    
+    func loadSampleYoutubeVideo (){
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        Alamofire.request(.GET, URL, parameters: ["foo": "bar"])
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                    if let array = JSON.objectForKey("items") as? [NSDictionary] {
+                        self.videoArray.appendContentsOf(array)
+                        self.collectionView.reloadData()
+                    }
+                }
+        }
+    }
+}
+
+extension ViewController : UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let item = self.videoArray[indexPath.row]
+        if let videoId = item["id"] as? NSDictionary {
+            if let video = videoId["videoId"] as? String {
+                let videoPlayer = SYVideoPlayerController.currentVideoPlayer
+                
+                videoPlayer.presentIn(self)
+                videoPlayer.playVideo(NSURL(string: "http://youtube.com/watch?v=\(video)")!)
+            }
+            
+        }
+        
+        
+    }
+}
+extension ViewController: UICollectionViewDataSource {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return videoArray.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("YoutubeVideoCell", forIndexPath: indexPath) as! YoutubeVideoCell
+        
+        let item = self.videoArray[indexPath.row]
+        if let snippet = item["snippet"] as? NSDictionary {
+            cell.lblTitle.text = snippet["title"] as? String
+            
+            if let thumbnails = snippet["thumbnails"] as? NSDictionary {
+                if let defaultThumb = thumbnails["high"] as? NSDictionary {
+                    if let url = defaultThumb["url"] as? String {
+                        cell.imgThumb.af_setImageWithURL(NSURL(string: url)!)
+                    }
+                }
+            }
+        }
+        
+        
+        cell.layer.masksToBounds = false
+        cell.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.layer.borderWidth = 2.0
+        cell.layer.shadowOpacity = 0.4
+        cell.layer.shadowRadius = 1.0
+        cell.layer.shadowOffset = CGSizeZero
+        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
+//        cell.layer.shouldRasterize = true
+        
+        return cell
+    }
+}
+
+extension ViewController : UICollectionViewDelegateFlowLayout {
+    //1
+    func collectionView(collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+
+        return CGSize(width: 170, height: 120)
+    }
+    
+    //3
+    func collectionView(collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                               insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(10, 10, 10, 10)
+    }
 }
 

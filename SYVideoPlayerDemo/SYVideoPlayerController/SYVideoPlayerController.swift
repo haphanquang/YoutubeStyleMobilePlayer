@@ -27,10 +27,11 @@ var screenHeight: CGFloat = UIScreen.mainScreen().bounds.height
 
 let videoSizeRatio: CGFloat = 16.0/9.0
 let minimalPadding: CGFloat = 3.0
-let minimalSize: CGSize = CGSizeMake(170, 170 / videoSizeRatio)
+let minimalSize: CGSize = CGSizeMake(190, 190 / videoSizeRatio)
 
 public class SYVideoPlayerController: UIViewController {
     
+    public static let currentVideoPlayer = SYVideoPlayerController()
 
     let videoContainer: UIView = UIView(frame: CGRectZero)
     let otherContainer: UIView = UIView(frame: CGRectZero)
@@ -44,7 +45,7 @@ public class SYVideoPlayerController: UIViewController {
     var backgroundAlpha: CGFloat = 0.7
     
     let maxVideoCornerRadius: CGFloat = 4
-    let maxVideoShadowOpacity: Float = 0.3
+    let maxVideoShadowOpacity: Float = 0.5
     
     var currentCornerRadius: CGFloat = 0.0
     var currentShadowOpacity: Float = 0.0
@@ -80,7 +81,6 @@ public class SYVideoPlayerController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
@@ -90,7 +90,7 @@ public class SYVideoPlayerController: UIViewController {
         super.loadView()
         
         videoContainer.layer.masksToBounds = false
-        videoContainer.layer.shadowRadius = 2.0
+        videoContainer.layer.shadowRadius = 4.0
         videoContainer.layer.shadowOffset = CGSizeMake(0, 0)
         
         videoContainer.layer.shadowOpacity = currentShadowOpacity
@@ -540,7 +540,6 @@ extension SYVideoPlayerController {
         moviePlayer?.play()
         
         addActionsFromMoviePlayer()
-        
         updateContainerLayout(presentingState)
     }
     
