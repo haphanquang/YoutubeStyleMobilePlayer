@@ -108,10 +108,7 @@ public class SYVideoPlayerController: UIViewController {
         otherContainer.backgroundColor = UIColor.greenColor()
         videoContainer.backgroundColor = UIColor.redColor()
         
-        updateContainerLayout(.StateNormal)
-        
         addGestures()
-        
         
     }
     
@@ -121,7 +118,7 @@ public class SYVideoPlayerController: UIViewController {
     
     func updateContainerLayout (presentState: PresentingState) {
         
-        let selfBounds = view.bounds
+        let screenBounds = UIScreen.mainScreen().bounds
         
         var videoFrame = videoContainer.frame
         var otherFrame = otherContainer.frame
@@ -132,30 +129,45 @@ public class SYVideoPlayerController: UIViewController {
             
             videoFrame.origin.x = 0
             videoFrame.origin.y = 0
-            videoFrame.size.width = selfBounds.size.width
-            videoFrame.size.height = selfBounds.size.width / videoSizeRatio
+            videoFrame.size.width = screenBounds.size.width
+            videoFrame.size.height = screenBounds.size.width / videoSizeRatio
             
             videoContainer.layer.shadowOpacity = 0.0
             videoContainer.layer.cornerRadius = 0.0
         
             view.backgroundColor = UIColor(white: backgroundWhite, alpha: backgroundAlpha)
             otherContainer.alpha = 1.0
+            
             moviePlayer?.controlsHidden = false
+            moviePlayer?.view.userInteractionEnabled = true
+            
+            
+            if let btnSize = moviePlayer?.getViewForElementWithIdentifier("size_control") as? UIButton {
+                btnSize.setImage(UIImage(named: "full_screen"), forState: .Normal)
+            }
+            
             break
         case .StateFullScreen :
             videoFrame.origin.x = 0
             videoFrame.origin.y = 0
             
             //ngược ??
-            videoFrame.size.width = selfBounds.size.height
-            videoFrame.size.height = selfBounds.size.width
+            videoFrame.size.width = screenBounds.size.width
+            videoFrame.size.height = screenBounds.size.height
             
             videoContainer.layer.shadowOpacity = 0.0
             videoContainer.layer.cornerRadius = 0.0
             
             view.backgroundColor = UIColor(white: backgroundWhite, alpha: 0.0)
             otherContainer.alpha = 0.0
+            
             moviePlayer?.controlsHidden = false
+            moviePlayer?.view.userInteractionEnabled = true
+            
+            if let btnSize = moviePlayer?.getViewForElementWithIdentifier("size_control") as? UIButton {
+                btnSize.setImage(UIImage(named: "normal_screen"), forState: .Normal)
+            }
+            
             break
         case .StateMinimal:
             videoFrame = minimizeFrame
@@ -168,6 +180,12 @@ public class SYVideoPlayerController: UIViewController {
             otherContainer.alpha = 0.0
             
             moviePlayer?.controlsHidden = true
+            moviePlayer?.view.userInteractionEnabled = false
+            
+            if let btnSize = moviePlayer?.getViewForElementWithIdentifier("size_control") as? UIButton {
+                btnSize.setImage(UIImage(named: "full_screen"), forState: .Normal)
+            }
+            
             break
         default:
             break
@@ -176,13 +194,12 @@ public class SYVideoPlayerController: UIViewController {
         otherFrame.origin.x = videoFrame.origin.x
         otherFrame.origin.y = videoFrame.size.height + videoFrame.origin.y
         
-        otherFrame.size.width = selfBounds.size.width
-        otherFrame.size.height = selfBounds.size.height - videoFrame.size.height
+        otherFrame.size.width = screenBounds.size.width
+        otherFrame.size.height = screenBounds.size.height - videoFrame.size.height
         
         videoContainer.alpha = 1.0
         
         videoContainer.frame = videoFrame
-        
         moviePlayer?.view.frame = videoContainer.bounds
         
         otherContainer.frame = otherFrame
@@ -276,6 +293,8 @@ extension SYVideoPlayerController {
             previousX = startX
             previousY = startY
             
+            moviePlayer?.controlsHidden = true
+            
             break
         case .Changed:
             
@@ -351,7 +370,7 @@ extension SYVideoPlayerController {
         otherContainer.frame = otherFrame
         otherContainer.alpha = otherContainer.alpha - rateChanged
         
-        backgroundAlpha = backgroundAlpha - rateChanged
+        backgroundAlpha = backgroundAlpha - rateChanged * 0.6
         if backgroundAlpha < 0 {
             backgroundAlpha = 0
         }
@@ -364,18 +383,38 @@ extension SYVideoPlayerController {
         UIView.animateWithDuration(0.3, animations: {
             self.updateContainerLayout(self.nextState)
         }, completion: { (completed) in
-            self.presentingState = self.nextState
-            self.isSwiping = false
-            self.isAnimating = false
-            self.nextState = .StateNotDetermine
+            self.completeChangeState()
         })
+    }
+    
+    func completeChangeState () {
+        self.presentingState = self.nextState
+        
+        if self.presentingState == .StateMinimal || self.presentingState == .StateFullScreen {
+            self.updateStatusBarFrame(0)
+        }else{
+            self.updateStatusBarFrame(-20)
+        }
+        
+        self.isSwiping = false
+        self.isAnimating = false
+        self.nextState = .StateNotDetermine
+    }
+    
+    func updateStatusBarFrame(y: CGFloat) -> () {
+        UIView.animateWithDuration(0.3) {
+            let statusBarWindow = UIApplication.sharedApplication().valueForKey("statusBarWindow") as! UIWindow
+            var frame = statusBarWindow.frame
+            frame.origin.y = y
+            statusBarWindow.frame = frame
+        }
     }
     
     
     public override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
-        if size.width > size.height {
+        if self.presentingState != .StateFullScreen {
             self.nextState = .StateFullScreen
         }else{
             self.nextState = .StateNormal
@@ -384,10 +423,7 @@ extension SYVideoPlayerController {
         coordinator.animateAlongsideTransition({ (context) in
             self.updateContainerLayout(self.nextState)
         }) { (context) in
-            self.presentingState = self.nextState
-            self.nextState = .StateNotDetermine
-            self.isAnimating = false
-            self.isSwiping = false
+            self.completeChangeState()
         }
     }
 }
@@ -443,29 +479,46 @@ extension SYVideoPlayerController {
         controller.addChildViewController(self)
         controller.view.addSubview(self.view)
         
-        self.view.frame = CGRectMake(0, controller.view.bounds.size.height, controller.view.bounds.size.width, controller.view.bounds.size.height)
+        self.updateStatusBarFrame(-20)
         
-        UIView.animateWithDuration(0.4) {
+        self.view.frame = CGRectMake(0, controller.view.bounds.size.height, controller.view.bounds.size.width, controller.view.bounds.size.height)
+        UIView.animateWithDuration(0.3, animations: {
             self.view.frame = controller.view.bounds
-            let statusBarWindow = UIApplication.sharedApplication().valueForKey("statusBarWindow") as! UIWindow
-            var frame = statusBarWindow.frame
-            frame.origin.y = -20
-            statusBarWindow.frame = frame
+        }, completion: nil)
+        
+        if view.bounds.size.width > view.bounds.size.height {
+            presentingState = .StateFullScreen
+        }else{
+            presentingState = .StateNormal
         }
         
     }
     
     public func dismissPlayer () {
-        self.removeFromParentViewController()
-        self.view.removeFromSuperview()
-        
-        UIView.animateWithDuration(0.3) {
-            let statusBarWindow = UIApplication.sharedApplication().valueForKey("statusBarWindow") as! UIWindow
-            var frame = statusBarWindow.frame
-            frame.origin.y = 0
-            statusBarWindow.frame = frame
+        if (presentingState != .StateNormal) {
+            
+            UIView.animateWithDuration(0.3, animations: {
+                    self.videoContainer.alpha = 0.0
+                }, completion: { (completed) in
+                    self.removeFromParentViewController()
+                    self.view.removeFromSuperview()
+                    
+                    self.updateStatusBarFrame(0)
+            })
+        }else{
+            
+            UIView.animateWithDuration(0.3, animations: {
+                self.view.frame = CGRectMake(0, self.parentViewController!.view.bounds.size.height, self.parentViewController!.view.bounds.size.width, self.parentViewController!.view.bounds.size.height)
+                }, completion: { (completed) in
+                    self.removeFromParentViewController()
+                    self.view.removeFromSuperview()
+                    
+                    self.updateStatusBarFrame(0)
+            })
         }
+        
     }
+    
     
     public func playVideo(videoUrl: NSURL) {
         if let player = moviePlayer {
@@ -483,9 +536,30 @@ extension SYVideoPlayerController {
         
         videoContainer.addSubview(moviePlayer!.view)
         moviePlayer?.play()
+        
+        addActionsFromMoviePlayer()
+        
+        updateContainerLayout(presentingState)
+    }
+    
+    func addActionsFromMoviePlayer (){
+        let buttonClose = moviePlayer?.getViewForElementWithIdentifier("close") as? UIButton
+        buttonClose?.removeTarget(self, action: nil, forControlEvents: UIControlEvents.AllEvents)
+        buttonClose?.addTarget(self, action: #selector(SYVideoPlayerController.dismissPlayer), forControlEvents: .TouchUpInside)
+        
+        let btnSize = moviePlayer?.getViewForElementWithIdentifier("size_control") as? UIButton
+        btnSize?.removeTarget(self, action: nil, forControlEvents: UIControlEvents.AllEvents)
+        btnSize?.addTarget(self, action: #selector(SYVideoPlayerController.showFullScreen), forControlEvents: .TouchUpInside)
     }
     
     public func showFullScreen () {
+        if presentingState != .StateFullScreen {
+            let value = UIInterfaceOrientation.LandscapeLeft.rawValue
+            UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        }else{
+            let value = UIInterfaceOrientation.Portrait.rawValue
+            UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        }
         
     }
     

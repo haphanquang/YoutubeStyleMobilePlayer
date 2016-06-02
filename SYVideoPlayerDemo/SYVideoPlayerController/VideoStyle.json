@@ -1,6 +1,6 @@
 {
     "bottomBar":{
-        "backgroundColor": ["#00050000", "#00050080"],
+        "backgroundColor": ["#03050300", "#03050390"],
         "elements":[{
              "type": "toggleButton",
              "identifier": "play"
@@ -16,13 +16,13 @@
              "thumbBorderWidth": 1,
              "thumbBorderColor": "#fff",
              "marginRight": 10
-             },
-            {"type":"label", "identifier":"currentTime", "marginRight":15}
+             },{"type":"label", "identifier":"currentTime", "marginRight":3, "size":11},
+                    {"type":"label", "text":"/", "marginRight":3, "size": 11},
+            {"type":"label", "identifier":"duration", "marginRight":3, "size":11},{"type": "button","identifier": "size_control", "width":25, "height":25,"marginRight":15}
             ]
         },
     "topBar": {
-        "backgroundColor": ["#00050080", "#00050000"],
-        "height":30,
-        "elements": [{"type": "button","identifier": "action"}]
+        "backgroundColor": ["#03050390", "#03050300"],
+        "elements": [{"type": "button","identifier": "close"}, {"type": "label","identifier": "title","size": 12, "marginLeft":5, "marginRight":10}]
     }
 }
