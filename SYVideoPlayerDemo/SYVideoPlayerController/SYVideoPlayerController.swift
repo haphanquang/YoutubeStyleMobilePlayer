@@ -417,7 +417,9 @@ extension SYVideoPlayerController {
         if self.presentingState != .StateFullScreen {
             self.nextState = .StateFullScreen
         }else{
-            self.nextState = .StateNormal
+            if size.width == self.view.bounds.size.width {
+                self.nextState = .StateNormal
+            }
         }
         
         coordinator.animateAlongsideTransition({ (context) in
