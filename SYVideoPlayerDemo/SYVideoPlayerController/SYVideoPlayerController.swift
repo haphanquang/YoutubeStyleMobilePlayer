@@ -443,12 +443,28 @@ extension SYVideoPlayerController {
         controller.addChildViewController(self)
         controller.view.addSubview(self.view)
         
-        self.view.frame = controller.view.bounds
+        self.view.frame = CGRectMake(0, controller.view.bounds.size.height, controller.view.bounds.size.width, controller.view.bounds.size.height)
+        
+        UIView.animateWithDuration(0.4) {
+            self.view.frame = controller.view.bounds
+            let statusBarWindow = UIApplication.sharedApplication().valueForKey("statusBarWindow") as! UIWindow
+            var frame = statusBarWindow.frame
+            frame.origin.y = -20
+            statusBarWindow.frame = frame
+        }
+        
     }
     
     public func dismissPlayer () {
         self.removeFromParentViewController()
         self.view.removeFromSuperview()
+        
+        UIView.animateWithDuration(0.3) {
+            let statusBarWindow = UIApplication.sharedApplication().valueForKey("statusBarWindow") as! UIWindow
+            var frame = statusBarWindow.frame
+            frame.origin.y = 0
+            statusBarWindow.frame = frame
+        }
     }
     
     public func playVideo(videoUrl: NSURL) {

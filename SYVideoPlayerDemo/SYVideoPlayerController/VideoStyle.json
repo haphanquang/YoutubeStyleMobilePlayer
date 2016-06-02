@@ -1,6 +1,6 @@
 {
     "bottomBar":{
-        "backgroundColor": ["#00050000", "#000500a0"],
+        "backgroundColor": ["#00050000", "#00050080"],
         "elements":[{
              "type": "toggleButton",
              "identifier": "play"
@@ -21,7 +21,7 @@
             ]
         },
     "topBar": {
-        "backgroundColor": ["#000500a0", "#00050000"],
+        "backgroundColor": ["#00050080", "#00050000"],
         "height":30,
         "elements": [{"type": "button","identifier": "action"}]
     }
