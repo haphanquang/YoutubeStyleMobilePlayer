@@ -114,6 +114,7 @@ public class SYVideoPlayerController: UIViewController {
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        NSLog("self frame %@", NSStringFromCGRect(self.view.frame))
     }
     
     func updateContainerLayout (presentState: PresentingState) {
@@ -414,12 +415,12 @@ extension SYVideoPlayerController {
     public override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
+        NSLog("Size to move: %@, self bound: %@", NSStringFromCGSize(size), NSStringFromCGRect(self.view.frame))
+        
         if self.presentingState != .StateFullScreen {
             self.nextState = .StateFullScreen
         }else{
-            if size.width == self.view.bounds.size.width {
-                self.nextState = .StateNormal
-            }
+            self.nextState = .StateNormal
         }
         
         coordinator.animateAlongsideTransition({ (context) in
@@ -476,19 +477,17 @@ extension SYVideoPlayerController: UIGestureRecognizerDelegate {
 //MARK: API
 extension SYVideoPlayerController {
     public func presentIn(controller: UIViewController) {
-        loadView()
         
         controller.addChildViewController(self)
         controller.view.addSubview(self.view)
-        
-        self.updateStatusBarFrame(-20)
-        
+
         self.view.frame = CGRectMake(0, controller.view.bounds.size.height, controller.view.bounds.size.width, controller.view.bounds.size.height)
         UIView.animateWithDuration(0.3, animations: {
             self.view.frame = controller.view.bounds
         }, completion: nil)
         
-        if view.bounds.size.width > view.bounds.size.height {
+        let orientation = UIApplication.sharedApplication().statusBarOrientation
+        if UIInterfaceOrientationIsLandscape(orientation) {
             presentingState = .StateFullScreen
         }else{
             presentingState = .StateNormal
