@@ -42,7 +42,7 @@ public class SYVideoPlayerController: UIViewController {
     
     //configable
     let backgroundWhite: CGFloat = 0.3
-    var backgroundAlpha: CGFloat = 0.7
+    var backgroundAlpha: CGFloat = 0.6
     
     let maxVideoCornerRadius: CGFloat = 4
     let maxVideoShadowOpacity: Float = 0.5
@@ -105,8 +105,8 @@ public class SYVideoPlayerController: UIViewController {
         
         view.backgroundColor = UIColor(white: backgroundWhite, alpha: backgroundAlpha)
         
-        otherContainer.backgroundColor = UIColor.greenColor()
-        videoContainer.backgroundColor = UIColor.redColor()
+        otherContainer.backgroundColor = UIColor(white: 1.0, alpha: 0.6)
+        videoContainer.backgroundColor = UIColor.blackColor()
         
         addGestures()
         
@@ -207,9 +207,9 @@ public class SYVideoPlayerController: UIViewController {
 
     }
     
-    public override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
+//    public override func prefersStatusBarHidden() -> Bool {
+//        return true
+//    }
 }
 
 //MARK: Gesture
@@ -371,7 +371,7 @@ extension SYVideoPlayerController {
         otherContainer.frame = otherFrame
         otherContainer.alpha = otherContainer.alpha - rateChanged
         
-        backgroundAlpha = backgroundAlpha - rateChanged * 0.6
+        backgroundAlpha = backgroundAlpha - rateChanged
         if backgroundAlpha < 0 {
             backgroundAlpha = 0
         }
@@ -413,21 +413,31 @@ extension SYVideoPlayerController {
     
     
     public override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
         
         NSLog("Size to move: %@, self bound: %@", NSStringFromCGSize(size), NSStringFromCGRect(self.view.frame))
         
         if self.presentingState != .StateFullScreen {
             self.nextState = .StateFullScreen
         }else{
-            self.nextState = .StateNormal
+            if size.width == self.view.frame.width {
+                self.nextState = .StateFullScreen
+            }else{
+                self.nextState = .StateNormal
+            }
+            
         }
+        
+        
         
         coordinator.animateAlongsideTransition({ (context) in
             self.updateContainerLayout(self.nextState)
         }) { (context) in
             self.completeChangeState()
+             self.view.frame = CGRectMake(0, 0, size.width, size.height)
         }
+        
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
     }
 }
 
@@ -478,13 +488,20 @@ extension SYVideoPlayerController: UIGestureRecognizerDelegate {
 extension SYVideoPlayerController {
     public func presentIn(controller: UIViewController) {
         
+        if let parent = parentViewController {
+            if controller == parent {
+                return
+            }else{
+                self.view.removeFromSuperview()
+                self.removeFromParentViewController()
+            }
+        }
+        
         controller.addChildViewController(self)
         controller.view.addSubview(self.view)
+        
 
-        self.view.frame = CGRectMake(0, controller.view.bounds.size.height, controller.view.bounds.size.width, controller.view.bounds.size.height)
-        UIView.animateWithDuration(0.3, animations: {
-            self.view.frame = controller.view.bounds
-        }, completion: nil)
+        self.view.frame = CGRectMake(0, screenHeight, screenWidth, screenHeight)
         
         let orientation = UIApplication.sharedApplication().statusBarOrientation
         if UIInterfaceOrientationIsLandscape(orientation) {
@@ -492,6 +509,10 @@ extension SYVideoPlayerController {
         }else{
             presentingState = .StateNormal
         }
+        
+        UIView.animateWithDuration(0.3, animations: {
+            self.view.frame = controller.view.bounds
+        }, completion: nil)
         
     }
     
@@ -501,6 +522,7 @@ extension SYVideoPlayerController {
             UIView.animateWithDuration(0.3, animations: {
                     self.videoContainer.alpha = 0.0
                 }, completion: { (completed) in
+                    self.moviePlayer?.stop()
                     self.removeFromParentViewController()
                     self.view.removeFromSuperview()
                     
@@ -511,6 +533,7 @@ extension SYVideoPlayerController {
             UIView.animateWithDuration(0.3, animations: {
                 self.view.frame = CGRectMake(0, self.parentViewController!.view.bounds.size.height, self.parentViewController!.view.bounds.size.width, self.parentViewController!.view.bounds.size.height)
                 }, completion: { (completed) in
+                    self.moviePlayer?.stop()
                     self.removeFromParentViewController()
                     self.view.removeFromSuperview()
                     
@@ -536,10 +559,20 @@ extension SYVideoPlayerController {
         moviePlayer?.view.frame = videoContainer.bounds
         
         videoContainer.addSubview(moviePlayer!.view)
-        moviePlayer?.play()
+//        moviePlayer?.play()
+        moviePlayer?.shouldAutoplay = true
         
         addActionsFromMoviePlayer()
-        updateContainerLayout(presentingState)
+        
+        if presentingState == .StateMinimal {
+            nextState = .StateNormal
+            animateToNextState()
+        }else{
+            
+            updateContainerLayout(presentingState)
+            updateStatusBarFrame(-20)
+        }
+        
     }
     
     func addActionsFromMoviePlayer (){

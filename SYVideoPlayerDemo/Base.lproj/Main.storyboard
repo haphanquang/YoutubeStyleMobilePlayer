@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Cm-AL-4q7">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="kNK-rU-9M4">
+            <objects>
+                <navigationController id="6Cm-AL-4q7" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ifL-L9-kFH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="L2G-iq-90D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="guH-xm-WGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-590" y="131"/>
+        </scene>
+        <!--Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SYVideoPlayerDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,17 +52,24 @@
                                 </constraints>
                                 <state key="normal" title="btn2"/>
                             </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Z0y-CI-X74">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="xnx-iL-dHr"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uIn-KS-ims">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZJP-39-muy">
                                     <size key="itemSize" width="305" height="169"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="YoutubeVideoCell" id="ZC6-dP-jIx" customClass="YoutubeVideoCell" customModule="SYVideoPlayerDemo" customModuleProvider="target">
-                                        <rect key="frame" x="147.5" y="0.0" width="305" height="169"/>
+                                        <rect key="frame" x="147.5" y="10" width="305" height="169"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="305" height="169"/>
@@ -90,15 +113,26 @@
                             <constraint firstItem="UhI-0F-KTS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="A9T-iU-iiF"/>
                             <constraint firstItem="uIn-KS-ims" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GVH-SY-OHn"/>
                             <constraint firstItem="SKu-1R-faA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hxr-LN-lGd"/>
+                            <constraint firstItem="uIn-KS-ims" firstAttribute="top" secondItem="Z0y-CI-X74" secondAttribute="bottom" id="ICH-1Z-gLH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uIn-KS-ims" secondAttribute="bottom" id="efY-pr-jft"/>
+                            <constraint firstItem="Z0y-CI-X74" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h7o-CQ-JnY"/>
                             <constraint firstAttribute="trailing" secondItem="uIn-KS-ims" secondAttribute="trailing" id="j5g-zX-cTj"/>
-                            <constraint firstItem="uIn-KS-ims" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uA5-Yy-ka4"/>
+                            <constraint firstAttribute="trailing" secondItem="Z0y-CI-X74" secondAttribute="trailing" id="rSf-bM-eeS"/>
+                            <constraint firstItem="Z0y-CI-X74" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="tEt-GY-Gpd"/>
+                            <constraint firstItem="uIn-KS-ims" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="108" id="uA5-Yy-ka4"/>
                             <constraint firstItem="UhI-0F-KTS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uTc-NL-aSv"/>
                             <constraint firstItem="SKu-1R-faA" firstAttribute="top" secondItem="UhI-0F-KTS" secondAttribute="bottom" constant="8" id="yHQ-XN-CdF"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uA5-Yy-ka4"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Search" id="rtj-4Z-s74"/>
                     <connections>
                         <outlet property="collectionView" destination="uIn-KS-ims" id="USC-4g-mJZ"/>
+                        <outlet property="searchBar" destination="Z0y-CI-X74" id="kgN-Zv-H9f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
