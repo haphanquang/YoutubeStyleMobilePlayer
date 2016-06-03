@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         collectionView.backgroundColor = UIColor.whiteColor()
         
         searchBar.delegate = self
+        loadSampleYoutubeVideo()
     }
 
     override func didReceiveMemoryWarning() {
