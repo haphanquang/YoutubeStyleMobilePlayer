@@ -14,6 +14,9 @@ import Foundation
 class ViewController: UIViewController {
     
     static let YoutubeAPIKey = "AIzaSyCFbGK0NBsOl39gbeRc9bv8EgJwe-U7R1A"
+    static let Part = "snippet"
+    static let MaxResults = "25"
+    
     var searchUrl: String = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=nhu%20quynh&type=video&maxResults=40&key=AIzaSyCFbGK0NBsOl39gbeRc9bv8EgJwe-U7R1A"
     
     var videoArray: [NSDictionary] = [NSDictionary]()
@@ -68,6 +71,17 @@ class ViewController: UIViewController {
                     }
                 }
         }
+    }
+    
+//    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+//        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+//        self.collectionView.reloadData()
+//    }
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
 }
 
@@ -155,6 +169,16 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                                insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(10, 10, 10, 10)
+    }
+}
+
+//navigation
+class MyNavigation: UINavigationController {
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return .AllButUpsideDown
     }
 }
 

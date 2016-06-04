@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--My Navigation-->
         <scene sceneID="kNK-rU-9M4">
             <objects>
-                <navigationController id="6Cm-AL-4q7" sceneMemberID="viewController">
+                <navigationController id="6Cm-AL-4q7" customClass="MyNavigation" customModule="SYVideoPlayerDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ifL-L9-kFH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

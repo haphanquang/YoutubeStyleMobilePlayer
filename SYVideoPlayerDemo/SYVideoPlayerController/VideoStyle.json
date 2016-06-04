@@ -15,6 +15,7 @@
              "thumbTintColor": "#f9f9f9",
              "thumbBorderWidth": 1,
              "thumbBorderColor": "#fff",
+            "thumbWidth": 24,"thumbHeight": 24,"thumbCornerRadius":12,
              "marginRight": 10
              },{"type":"label", "identifier":"currentTime", "marginRight":3, "size":11},
                     {"type":"label", "text":"/", "marginRight":3, "size": 11},

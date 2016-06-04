@@ -136,6 +136,7 @@ public class SYVideoPlayerController: UIViewController {
             videoContainer.layer.shadowOpacity = 0.0
             videoContainer.layer.cornerRadius = 0.0
         
+            backgroundAlpha = 0.6
             view.backgroundColor = UIColor(white: backgroundWhite, alpha: backgroundAlpha)
             otherContainer.alpha = 1.0
             
@@ -159,7 +160,8 @@ public class SYVideoPlayerController: UIViewController {
             videoContainer.layer.shadowOpacity = 0.0
             videoContainer.layer.cornerRadius = 0.0
             
-            view.backgroundColor = UIColor(white: backgroundWhite, alpha: 0.0)
+            backgroundAlpha = 0.0
+            view.backgroundColor = UIColor(white: backgroundWhite, alpha: backgroundAlpha)
             otherContainer.alpha = 0.0
             
             moviePlayer?.controlsHidden = false
@@ -177,7 +179,8 @@ public class SYVideoPlayerController: UIViewController {
             videoContainer.layer.shadowOpacity = maxVideoShadowOpacity
             videoContainer.layer.cornerRadius = maxVideoCornerRadius
             
-            view.backgroundColor = UIColor(white: backgroundWhite, alpha: 0.0)
+            backgroundAlpha = 0.0
+            view.backgroundColor = UIColor(white: backgroundWhite, alpha: backgroundAlpha)
             otherContainer.alpha = 0.0
             
             moviePlayer?.controlsHidden = true
@@ -204,7 +207,6 @@ public class SYVideoPlayerController: UIViewController {
         moviePlayer?.view.frame = videoContainer.bounds
         
         otherContainer.frame = otherFrame
-
     }
     
 //    public override func prefersStatusBarHidden() -> Bool {
@@ -383,6 +385,11 @@ extension SYVideoPlayerController {
         isAnimating = true
         UIView.animateWithDuration(0.3, animations: {
             self.updateContainerLayout(self.nextState)
+            if self.nextState == .StateMinimal || self.nextState == .StateFullScreen {
+                self.updateStatusBarFrame(0)
+            }else{
+                self.updateStatusBarFrame(-20)
+            }
         }, completion: { (completed) in
             self.completeChangeState()
         })
@@ -390,25 +397,17 @@ extension SYVideoPlayerController {
     
     func completeChangeState () {
         self.presentingState = self.nextState
-        
-        if self.presentingState == .StateMinimal || self.presentingState == .StateFullScreen {
-            self.updateStatusBarFrame(0)
-        }else{
-            self.updateStatusBarFrame(-20)
-        }
-        
         self.isSwiping = false
         self.isAnimating = false
         self.nextState = .StateNotDetermine
     }
     
     func updateStatusBarFrame(y: CGFloat) -> () {
-        UIView.animateWithDuration(0.3) {
-            let statusBarWindow = UIApplication.sharedApplication().valueForKey("statusBarWindow") as! UIWindow
-            var frame = statusBarWindow.frame
-            frame.origin.y = y
-            statusBarWindow.frame = frame
-        }
+        let statusBarWindow = UIApplication.sharedApplication().valueForKey("statusBarWindow") as! UIWindow
+        var frame = statusBarWindow.frame
+        frame.origin.y = y
+        frame.origin.x = 0
+        statusBarWindow.frame = frame
     }
     
     
@@ -431,10 +430,11 @@ extension SYVideoPlayerController {
         
         
         coordinator.animateAlongsideTransition({ (context) in
+            self.view.frame = CGRectMake(0, 0, size.width, size.height)
             self.updateContainerLayout(self.nextState)
         }) { (context) in
             self.completeChangeState()
-             self.view.frame = CGRectMake(0, 0, size.width, size.height)
+            
         }
         
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
@@ -521,23 +521,21 @@ extension SYVideoPlayerController {
             
             UIView.animateWithDuration(0.3, animations: {
                     self.videoContainer.alpha = 0.0
+                    self.updateStatusBarFrame(0)
                 }, completion: { (completed) in
                     self.moviePlayer?.stop()
                     self.removeFromParentViewController()
                     self.view.removeFromSuperview()
-                    
-                    self.updateStatusBarFrame(0)
             })
         }else{
             
             UIView.animateWithDuration(0.3, animations: {
                 self.view.frame = CGRectMake(0, self.parentViewController!.view.bounds.size.height, self.parentViewController!.view.bounds.size.width, self.parentViewController!.view.bounds.size.height)
+                    self.updateStatusBarFrame(0)
                 }, completion: { (completed) in
                     self.moviePlayer?.stop()
                     self.removeFromParentViewController()
                     self.view.removeFromSuperview()
-                    
-                    self.updateStatusBarFrame(0)
             })
         }
         
@@ -568,7 +566,6 @@ extension SYVideoPlayerController {
             nextState = .StateNormal
             animateToNextState()
         }else{
-            
             updateContainerLayout(presentingState)
             updateStatusBarFrame(-20)
         }
