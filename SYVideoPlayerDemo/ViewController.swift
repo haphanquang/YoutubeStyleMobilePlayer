@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import XCDYouTubeKit
 import Foundation
 
 class ViewController: UIViewController {
@@ -105,13 +106,22 @@ extension ViewController: UISearchBarDelegate {
 extension ViewController : UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+
         let item = self.videoArray[indexPath.row]
         if let videoId = item["id"] as? NSDictionary {
-            if let video = videoId["videoId"] as? String {
-                let videoPlayer = SYVideoPlayerController.currentVideoPlayer
+            if let videoIDString = videoId["videoId"] as? String {
                 
-                videoPlayer.presentIn(self.navigationController!)
-                videoPlayer.playVideo(NSURL(string: "http://youtube.com/watch?v=\(video)")!)
+                let client = XCDYouTubeClient.defaultClient()
+                client.getVideoWithIdentifier(videoIDString, completionHandler: { (video, error) in
+                    let videoPlayer = SYVideoPlayerController.currentVideoPlayer
+                    
+                    videoPlayer.presentIn(self.navigationController!)
+                    
+                    // should improve - some video not have hd720
+                    let key = NSNumber(integer: Int(XCDYouTubeVideoQuality.Medium360.rawValue)) as NSObject
+                    
+                    videoPlayer.playVideo(video!.streamURLs[key]!)
+                })
             }
             
         }

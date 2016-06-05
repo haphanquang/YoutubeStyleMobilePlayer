@@ -556,9 +556,9 @@ extension SYVideoPlayerController {
         moviePlayer = MobilePlayerViewController(contentURL: videoUrl, config: config)
         moviePlayer?.view.frame = videoContainer.bounds
         
+        moviePlayer?.backgroundPlaybackEnabled = true
         videoContainer.addSubview(moviePlayer!.view)
-//        moviePlayer?.play()
-        moviePlayer?.shouldAutoplay = true
+        moviePlayer?.play()
         
         addActionsFromMoviePlayer()
         

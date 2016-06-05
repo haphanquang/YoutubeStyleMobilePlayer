@@ -18,6 +18,7 @@
 		7A58823F1CE727C200D17823 /* SYVideoPlayerDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A58823E1CE727C200D17823 /* SYVideoPlayerDemoUITests.swift */; };
 		7A58824E1CE7292700D17823 /* SYVideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A58824D1CE7292700D17823 /* SYVideoPlayerController.swift */; };
 		7A8F1E8A1CFF3C65009ECE11 /* VideoStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A8F1E891CFF3C65009ECE11 /* VideoStyle.json */; };
+		7AA6E4241D03CA8900B3B813 /* MPMoviePlayerController+BackgroundPlayback.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA6E4231D03CA8900B3B813 /* MPMoviePlayerController+BackgroundPlayback.m */; };
 		7AE1F12F1D008BDC004830DA /* full_screen@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AE1F12D1D008BDC004830DA /* full_screen@3x.png */; };
 		7AE1F1301D008BDC004830DA /* normal_screen@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AE1F12E1D008BDC004830DA /* normal_screen@3x.png */; };
 		7AE1F1321D009858004830DA /* YoutubeVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE1F1311D009858004830DA /* YoutubeVideoCell.swift */; };
@@ -25,6 +26,8 @@
 		7AE1F1651D009DA5004830DA /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE1F1571D009D9A004830DA /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7AE2EA291D01FD4400202E6F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE2EA281D01FD4400202E6F /* Alamofire.framework */; };
 		7AE2EA2A1D01FD4400202E6F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE2EA281D01FD4400202E6F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7AE2EA431D03C36300202E6F /* XCDYouTubeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE2EA381D03C35000202E6F /* XCDYouTubeKit.framework */; };
+		7AE2EA441D03C36300202E6F /* XCDYouTubeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE2EA381D03C35000202E6F /* XCDYouTubeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +143,62 @@
 			remoteGlobalIDString = 4C9043761AABBFC5001B4E60;
 			remoteInfo = "AlamofireImage iOS";
 		};
+		7AE2EA351D03C35000202E6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AE2EA2B1D03C35000202E6F /* XCDYouTubeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C2A3F2CD17F4827800AC1C3B;
+			remoteInfo = "XCDYouTubeKit iOS Static Library";
+		};
+		7AE2EA371D03C35000202E6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AE2EA2B1D03C35000202E6F /* XCDYouTubeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C2F0E5731944F10E00D8EBA8;
+			remoteInfo = "XCDYouTubeKit iOS Framework";
+		};
+		7AE2EA391D03C35000202E6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AE2EA2B1D03C35000202E6F /* XCDYouTubeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C262317A191D741700D23900;
+			remoteInfo = "XCDYouTubeKit OS X";
+		};
+		7AE2EA3B1D03C35000202E6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AE2EA2B1D03C35000202E6F /* XCDYouTubeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C215BE971BE2E36600F9783B;
+			remoteInfo = "XCDYouTubeKit tvOS";
+		};
+		7AE2EA3D1D03C35000202E6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AE2EA2B1D03C35000202E6F /* XCDYouTubeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C20F579B18817D5400EDBFB0;
+			remoteInfo = "XCDYouTubeKit iOS Tests";
+		};
+		7AE2EA3F1D03C35000202E6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AE2EA2B1D03C35000202E6F /* XCDYouTubeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C2DD4DA2191FFDE100AF6F85;
+			remoteInfo = "XCDYouTubeKit OS X Tests";
+		};
+		7AE2EA411D03C35000202E6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AE2EA2B1D03C35000202E6F /* XCDYouTubeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C215BEA01BE2E36600F9783B;
+			remoteInfo = "XCDYouTubeKit tvOS Tests";
+		};
+		7AE2EA451D03C36300202E6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AE2EA2B1D03C35000202E6F /* XCDYouTubeKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C2F0E5721944F10E00D8EBA8;
+			remoteInfo = "XCDYouTubeKit iOS Framework";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -152,6 +211,7 @@
 				7A39D92E1CFDF36E003681C6 /* MobilePlayer.framework in Embed Frameworks */,
 				7AE2EA2A1D01FD4400202E6F /* Alamofire.framework in Embed Frameworks */,
 				7AE1F1651D009DA5004830DA /* AlamofireImage.framework in Embed Frameworks */,
+				7AE2EA441D03C36300202E6F /* XCDYouTubeKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,11 +235,15 @@
 		7A5882401CE727C200D17823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A58824D1CE7292700D17823 /* SYVideoPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYVideoPlayerController.swift; sourceTree = "<group>"; };
 		7A8F1E891CFF3C65009ECE11 /* VideoStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VideoStyle.json; sourceTree = "<group>"; };
+		7AA6E4211D03CA8800B3B813 /* SYVideoPlayerDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SYVideoPlayerDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		7AA6E4221D03CA8900B3B813 /* MPMoviePlayerController+BackgroundPlayback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMoviePlayerController+BackgroundPlayback.h"; sourceTree = "<group>"; };
+		7AA6E4231D03CA8900B3B813 /* MPMoviePlayerController+BackgroundPlayback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPMoviePlayerController+BackgroundPlayback.m"; sourceTree = "<group>"; };
 		7AE1F12D1D008BDC004830DA /* full_screen@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_screen@3x.png"; sourceTree = "<group>"; };
 		7AE1F12E1D008BDC004830DA /* normal_screen@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "normal_screen@3x.png"; sourceTree = "<group>"; };
 		7AE1F1311D009858004830DA /* YoutubeVideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeVideoCell.swift; sourceTree = "<group>"; };
 		7AE1F14B1D009D9A004830DA /* AlamofireImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlamofireImage.xcodeproj; path = AlamofireImage/AlamofireImage.xcodeproj; sourceTree = "<group>"; };
 		7AE2EA281D01FD4400202E6F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Alamofire.framework; path = "/Users/quangha/Library/Developer/Xcode/DerivedData/SYVideoPlayerDemo-gfsddvrjxpdjilfmitagjxdrvkpz/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<absolute>"; };
+		7AE2EA2B1D03C35000202E6F /* XCDYouTubeKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCDYouTubeKit.xcodeproj; path = XCDYouTubeKit/XCDYouTubeKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +254,7 @@
 				7A39D92D1CFDF36E003681C6 /* MobilePlayer.framework in Frameworks */,
 				7AE2EA291D01FD4400202E6F /* Alamofire.framework in Frameworks */,
 				7AE1F1641D009DA5004830DA /* AlamofireImage.framework in Frameworks */,
+				7AE2EA431D03C36300202E6F /* XCDYouTubeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				7AE2EA281D01FD4400202E6F /* Alamofire.framework */,
+				7AE2EA2B1D03C35000202E6F /* XCDYouTubeKit.xcodeproj */,
 				7AE1F14B1D009D9A004830DA /* AlamofireImage.xcodeproj */,
 				7A39D91B1CFDF34B003681C6 /* MobilePlayer.xcodeproj */,
 				7A58821D1CE727C200D17823 /* SYVideoPlayerDemo */,
@@ -281,6 +347,9 @@
 		7A58824C1CE727D700D17823 /* SYVideoPlayerController */ = {
 			isa = PBXGroup;
 			children = (
+				7AA6E4211D03CA8800B3B813 /* SYVideoPlayerDemo-Bridging-Header.h */,
+				7AA6E4221D03CA8900B3B813 /* MPMoviePlayerController+BackgroundPlayback.h */,
+				7AA6E4231D03CA8900B3B813 /* MPMoviePlayerController+BackgroundPlayback.m */,
 				7AE1F12D1D008BDC004830DA /* full_screen@3x.png */,
 				7AE1F12E1D008BDC004830DA /* normal_screen@3x.png */,
 				7A8F1E891CFF3C65009ECE11 /* VideoStyle.json */,
@@ -303,6 +372,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7AE2EA2C1D03C35000202E6F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7AE2EA361D03C35000202E6F /* libXCDYouTubeKit.a */,
+				7AE2EA381D03C35000202E6F /* XCDYouTubeKit.framework */,
+				7AE2EA3A1D03C35000202E6F /* XCDYouTubeKit.framework */,
+				7AE2EA3C1D03C35000202E6F /* XCDYouTubeKit.framework */,
+				7AE2EA3E1D03C35000202E6F /* XCDYouTubeKit iOS Tests.xctest */,
+				7AE2EA401D03C35000202E6F /* XCDYouTubeKit OS X Tests.xctest */,
+				7AE2EA421D03C35000202E6F /* XCDYouTubeKit tvOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,6 +403,7 @@
 			dependencies = (
 				7A39D9301CFDF36E003681C6 /* PBXTargetDependency */,
 				7AE1F1671D009DA5004830DA /* PBXTargetDependency */,
+				7AE2EA461D03C36300202E6F /* PBXTargetDependency */,
 			);
 			name = SYVideoPlayerDemo;
 			productName = SYVideoPlayerDemo;
@@ -404,6 +488,10 @@
 				{
 					ProductGroup = 7A39D91C1CFDF34B003681C6 /* Products */;
 					ProjectRef = 7A39D91B1CFDF34B003681C6 /* MobilePlayer.xcodeproj */;
+				},
+				{
+					ProductGroup = 7AE2EA2C1D03C35000202E6F /* Products */;
+					ProjectRef = 7AE2EA2B1D03C35000202E6F /* XCDYouTubeKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -500,6 +588,55 @@
 			remoteRef = 7AE1F1621D009D9A004830DA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		7AE2EA361D03C35000202E6F /* libXCDYouTubeKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libXCDYouTubeKit.a;
+			remoteRef = 7AE2EA351D03C35000202E6F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7AE2EA381D03C35000202E6F /* XCDYouTubeKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCDYouTubeKit.framework;
+			remoteRef = 7AE2EA371D03C35000202E6F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7AE2EA3A1D03C35000202E6F /* XCDYouTubeKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCDYouTubeKit.framework;
+			remoteRef = 7AE2EA391D03C35000202E6F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7AE2EA3C1D03C35000202E6F /* XCDYouTubeKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCDYouTubeKit.framework;
+			remoteRef = 7AE2EA3B1D03C35000202E6F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7AE2EA3E1D03C35000202E6F /* XCDYouTubeKit iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "XCDYouTubeKit iOS Tests.xctest";
+			remoteRef = 7AE2EA3D1D03C35000202E6F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7AE2EA401D03C35000202E6F /* XCDYouTubeKit OS X Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "XCDYouTubeKit OS X Tests.xctest";
+			remoteRef = 7AE2EA3F1D03C35000202E6F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7AE2EA421D03C35000202E6F /* XCDYouTubeKit tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "XCDYouTubeKit tvOS Tests.xctest";
+			remoteRef = 7AE2EA411D03C35000202E6F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -539,6 +676,7 @@
 			files = (
 				7A5882211CE727C200D17823 /* ViewController.swift in Sources */,
 				7AE1F1321D009858004830DA /* YoutubeVideoCell.swift in Sources */,
+				7AA6E4241D03CA8900B3B813 /* MPMoviePlayerController+BackgroundPlayback.m in Sources */,
 				7A58824E1CE7292700D17823 /* SYVideoPlayerController.swift in Sources */,
 				7A58821F1CE727C200D17823 /* AppDelegate.swift in Sources */,
 			);
@@ -582,6 +720,11 @@
 			isa = PBXTargetDependency;
 			name = "AlamofireImage iOS";
 			targetProxy = 7AE1F1661D009DA5004830DA /* PBXContainerItemProxy */;
+		};
+		7AE2EA461D03C36300202E6F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "XCDYouTubeKit iOS Framework";
+			targetProxy = 7AE2EA451D03C36300202E6F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -694,12 +837,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SYVideoPlayerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = soyo.mobile.SYVideoPlayerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SYVideoPlayerDemo/SYVideoPlayerController/SYVideoPlayerDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -707,12 +853,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SYVideoPlayerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = soyo.mobile.SYVideoPlayerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SYVideoPlayerDemo/SYVideoPlayerController/SYVideoPlayerDemo-Bridging-Header.h";
 			};
 			name = Release;
 		};
