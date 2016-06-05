@@ -1,0 +1,10 @@
+framework module MobilePlayer {
+  umbrella header "MobilePlayer.h"
+
+  export *
+  module * { export * }
+}
+
+module MobilePlayer.Swift {
+    header "MobilePlayer-Swift.h"
+}

@@ -11,6 +11,7 @@ import Alamofire
 import AlamofireImage
 import XCDYouTubeKit
 import Foundation
+import SYVideoController
 
 class ViewController: UIViewController {
     
@@ -120,7 +121,7 @@ extension ViewController : UICollectionViewDelegate {
                     // should improve - some video not have hd720
                     let key = NSNumber(integer: Int(XCDYouTubeVideoQuality.Medium360.rawValue)) as NSObject
                     
-                    videoPlayer.playVideo(video!.streamURLs[key]!)
+                    videoPlayer.playVideo(video!.streamURLs[key]!, title: video?.title)
                 })
             }
             

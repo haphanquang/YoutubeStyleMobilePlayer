@@ -1,0 +1,10 @@
+framework module SYVideoController {
+  umbrella header "SYVideoController.h"
+
+  export *
+  module * { export * }
+}
+
+module SYVideoController.Swift {
+    header "SYVideoController-Swift.h"
+}
